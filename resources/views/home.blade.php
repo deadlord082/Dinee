@@ -6,8 +6,12 @@
         <title>Home</title>
     </head>
     <body>
+    @extends('layouts.app')
+
+    @section('title', 'Accueil')
+
+    @section('content')
         <?php $filters = ['Mexicain','Algérien','Italien','Truc'] ?>
-        <x-navbar></x-navbar>
         Bienvenue
         <x-inputs.search-input placeholder="cherché un restaurant"></x-inputs.search-input>
         <br>
@@ -16,7 +20,6 @@
                 <x-inputs.slider-filter name="{{ $filter }}"></x-inputs.slider-filter>
             @endforeach
         </ul>
-        
-        
+    @endsection
     </body>
 </html>

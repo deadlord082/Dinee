@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\RestaurantController;
 use App\Http\Middleware\IsAuthenticated;
 
 Route::middleware([IsAuthenticated::class])->group(function () {
@@ -17,6 +18,8 @@ Route::middleware([IsAuthenticated::class])->group(function () {
     })->name( 'home');
 
     Route::get('/booking', [BookingController::class, 'index'])->name('bookings');
+
+    Route::get('/restaurants', [RestaurantController::class, 'index'])->name('restaurants');
 });
 
 Route::get('/', [loginController::class, 'login']);
