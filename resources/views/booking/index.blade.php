@@ -18,9 +18,9 @@
             <tr>
             @foreach ($bookings as $booking)
                 <tr>
-                    <td>{{ $booking->restaurant_id }}</td>
-                    <td>{{ $booking->dishe_id }}</td>
-                    <td>{{ $booking->statut_id }}</td>
+                    <td>{{ $booking->restaurant_name }}</td>
+                    <td>{{ $booking->dishe_name }}</td>
+                    <td>{{ $booking->status }}</td>
                     <td>{{ $booking->name }}</td>
                     <td>{{ $booking->nb_places }}</td>
                 </tr>
