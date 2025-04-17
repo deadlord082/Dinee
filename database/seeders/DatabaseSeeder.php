@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Dishe;
 use App\Models\User;
 use App\Models\Type;
 use App\Models\Statut;
@@ -49,5 +50,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Booking::factory(100)->create();
+        Dishe::factory(100)->create();
     }
 }

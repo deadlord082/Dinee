@@ -17,7 +17,9 @@ class DisheFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->domainName(),
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
+            'restaurant_id' => fake()->numberBetween(0,9),
         ];
     }
 }

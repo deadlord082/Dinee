@@ -7,10 +7,6 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BookingController;
 use App\Http\Middleware\IsAuthenticated;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::middleware([IsAuthenticated::class])->group(function () {
     // Route::get('/user', [UserController::class, 'index']);
     Route::get('/user', [UserController::class, 'show'])->name('profil');
@@ -23,5 +19,6 @@ Route::middleware([IsAuthenticated::class])->group(function () {
     Route::get('/booking', [BookingController::class, 'index'])->name('bookings');
 });
 
+Route::get('/', [loginController::class, 'login']);
 Route::get('/login', [loginController::class, 'login']);
 Route::post('/authenticate', [loginController::class, 'authenticate']);
