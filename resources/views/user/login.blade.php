@@ -11,8 +11,8 @@
             @csrf
     
             <!-- Equivalent to... -->
-            <input type="email" name="email" />
-            <input type="password" name="password" />
+            <input type="email" name="email" value="test@example.com"/>
+            <input type="password" name="password" value="12345678"/>
             <button type="submit">se connecter</button>
         </form>
     </body>

@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Type;
+use App\Models\Statut;
+use App\Models\Booking;
 use App\Models\Restaurant;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -35,5 +37,17 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Restaurant::factory(10)->create();
+
+        Statut::factory()->create([
+            'status' => 'En attentes',
+        ]);
+        Statut::factory()->create([
+            'status' => 'En cours',
+        ]);
+        Statut::factory()->create([
+            'status' => 'Terminés',
+        ]);
+
+        Booking::factory(100)->create();
     }
 }

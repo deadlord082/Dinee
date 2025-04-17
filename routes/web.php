@@ -1,8 +1,10 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BookingController;
 use App\Http\Middleware\IsAuthenticated;
 
 // Route::get('/', function () {
@@ -17,6 +19,8 @@ Route::middleware([IsAuthenticated::class])->group(function () {
     Route::get('/home', function () {
         return view('home');
     })->name( 'home');
+
+    Route::get('/booking', [BookingController::class, 'index'])->name('bookings');
 });
 
 Route::get('/login', [loginController::class, 'login']);

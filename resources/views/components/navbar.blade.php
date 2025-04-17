@@ -1,4 +1,13 @@
-<nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Home</title>
+        @vite('resources/css/app.css')
+    </head>
+    <body>
+    <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <a href="{{ route('home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="logo" class="h-8" alt="Logo" />
@@ -20,7 +29,7 @@
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
   </svg></button>
             <!-- Dropdown menu -->
-            <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
+            <div id="dropdownNavbar" class="z-10  font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                   <li>
                     <a href="{{ route('profil') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profil</a>
@@ -31,7 +40,11 @@
                 </div>
             </div>
         </li>
+        <li>
+          <a href="{{ route('bookings') }}" class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Panier</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
+</body>
