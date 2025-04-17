@@ -5,14 +5,18 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Middleware\IsAuthenticated;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::middleware([IsAuthenticated::class])->group(function () {
     // Route::get('/user', [UserController::class, 'index']);
-    Route::get('/user', [UserController::class, 'show']);
-    Route::get('/logout', [loginController::class, 'logout']);
+    Route::get('/user', [UserController::class, 'show'])->name('profil');
+    Route::get('/logout', [loginController::class, 'logout'])->name('logout');
+
+    Route::get('/home', function () {
+        return view('home');
+    })->name( 'home');
 });
 
 Route::get('/login', [loginController::class, 'login']);

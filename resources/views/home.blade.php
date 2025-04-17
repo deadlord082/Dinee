@@ -3,12 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Profile</title>
+        <title>Home</title>
 
     </head>
     <body>
         <x-navbar></x-navbar>
-        <p>{{ $user->name }}</p>
-        <a href="{{ route('logout') }}">se deconnecter</a>
+        Bienvenue
     </body>
 </html>

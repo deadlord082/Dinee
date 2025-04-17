@@ -23,7 +23,7 @@ class LoginController extends Controller
           );
         if (Auth::attempt($userdata)){
             // dd(Auth::user());
-            return redirect('/user/'.Auth::id());
+            return redirect('/home');
         }
         return back();        
     }
