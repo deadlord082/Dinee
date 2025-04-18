@@ -17,11 +17,6 @@ class CartService
   {
     $cart = $this->getCart();
 
-    // Si le restaurant est différent, vider le panier
-    if (!empty($cart) && $cart['restaurant_id'] != $restaurantId) {
-      $this->clearCart();
-      $cart = [];
-    }
 
     if (!isset($cart['items'])) {
       $cart = [
