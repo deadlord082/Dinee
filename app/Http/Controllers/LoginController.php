@@ -16,7 +16,6 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-        // dd($request->email,$request->password);
         $userdata = array(
             'email' => $request->email,
             'password' => $request->password,
@@ -29,6 +28,12 @@ class LoginController extends Controller
     }
 
     public function logout()
+    {
+        Auth::logout();
+        return redirect('/login');
+    }
+
+    public function register()
     {
         Auth::logout();
         return redirect('/login');
