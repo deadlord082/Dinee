@@ -11,7 +11,7 @@
 @section('title', 'Restaurants')
 
 @section('content')
-  <x-inputs.search-input placeholder="cherché un restaurant" action="{{ route('search-restaurants') }}" />
+  <x-inputs.search-input placeholder="Chercher un restaurant" action="{{ route('search-restaurants') }}" />
   <form method="POST" action="{{ route('search-restaurants') }}">
     @csrf
     <ul class="grid w-full gap-6 md:grid-cols-6">

@@ -19,7 +19,7 @@ Route::middleware([IsAuthenticated::class])->group(function () {
 
     Route::get('/booking', [BookingController::class, 'index'])->name('bookings');
 
-    Route::get('/restaurants', [RestaurantController::class, 'indexWithAvailableSeats'])->name('restaurants');
+    Route::get('/restaurants', [RestaurantController::class, 'index'])->name('restaurants');
     Route::get('/restaurants/{id}', [RestaurantController::class, 'show'])->name('restaurant');
     Route::post('/restaurants', [RestaurantController::class, 'search'])->name('search-restaurants');
 });

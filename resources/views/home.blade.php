@@ -13,7 +13,7 @@
     @section('content')
         <?php $filters = ['Mexicain','Algérien','Italien','Truc'] ?>
         Bienvenue
-        <x-inputs.search-input placeholder="cherché un restaurant"></x-inputs.search-input>
+        <x-inputs.search-input placeholder="Chercher un restaurant"></x-inputs.search-input>
         <br>
         <ul class="grid w-full gap-6 md:grid-cols-6">
             @foreach ($filters as $filter)
