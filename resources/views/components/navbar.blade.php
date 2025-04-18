@@ -58,7 +58,12 @@
         <li>
           <a href="{{ route('bookings') }}"
              class="block py-2 px-3 rounded-sm md:p-0 {{ request()->routeIs('bookings') ? 'text-blue-700 dark:text-blue-500' : 'text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500' }}"
-            {{ request()->routeIs('bookings') ? 'aria-current="page"' : '' }}>Panier</a>
+            {{ request()->routeIs('bookings') ? 'aria-current="page"' : '' }}>Réservations</a>
+        </li>
+        <li>
+          <a href="{{ route('cart.index') }}"
+             class="block py-2 px-3 rounded-sm md:p-0 {{ request()->routeIs('cart.index') ? 'text-blue-700 dark:text-blue-500' : 'text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500' }}"
+            {{ request()->routeIs('cart.index') ? 'aria-current="page"' : '' }}>Panier</a>
         </li>
         <li>
           <a href="{{ route('restaurants') }}"

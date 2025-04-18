@@ -51,6 +51,16 @@
     </div>
   </div>
 </div>
+<form action="{{ route('cart.add', $restaurant->id) }}" method="POST" class="mt-6">
+  @csrf
+  <div class="flex items-center mb-4">
+    <label for="quantity" class="mr-4">Quantité:</label>
+    <input type="number" id="quantity" name="quantity" value="1" min="1" class="w-20 px-3 py-2 border rounded-md">
+  </div>
+  <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-medium">
+    <i class="fas fa-cart-plus mr-2"></i> Ajouter au panier
+  </button>
+</form>
 
 @endsection
 </body>
