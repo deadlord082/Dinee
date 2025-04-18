@@ -11,6 +11,18 @@
 @section('title', 'Restaurants')
 
 @section('content')
+<x-inputs.search-input placeholder="cherché un restaurant" action="{{ route('search-restaurants') }}" />
+<form method="POST" action="{{ route('search-restaurants') }}">
+    @csrf
+    <ul class="grid w-full gap-6 md:grid-cols-6">
+        @foreach ($filters as $filter)
+            <x-inputs.slider-filter name="{{ $filter->name }}" id="{{ $filter->id }}"></x-inputs.slider-filter>
+        @endforeach
+    </ul>
+    <button type="submit" > submit </button>
+</form>
+<br><br><br>
+{{ $restaurants }}
     <h1>Liste des restaurants</h1>
 <ul role="list" class="divide-y divide-gray-100">
     <li class="flex justify-between gap-x-6 py-5">

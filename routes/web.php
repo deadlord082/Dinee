@@ -20,6 +20,7 @@ Route::middleware([IsAuthenticated::class])->group(function () {
     Route::get('/booking', [BookingController::class, 'index'])->name('bookings');
 
     Route::get('/restaurants', [RestaurantController::class, 'index'])->name('restaurants');
+    Route::post('/restaurants', [RestaurantController::class, 'search'])->name('search-restaurants');
 });
 
 Route::get('/', [loginController::class, 'login']);
