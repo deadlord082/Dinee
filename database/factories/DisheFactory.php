@@ -20,7 +20,6 @@ class DisheFactory extends Factory
             'name' => fake()->domainName(),
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
             'restaurant_id' => fake()->numberBetween(1,10),
-            'image' => fake()->imageUrl(),
         ];
     }
 }

@@ -15,7 +15,6 @@ class RestaurantController extends Controller
         'restaurants.name',
         'restaurants.localisation',
         'restaurants.nb_places',
-        'restaurants.type_id',
         \DB::raw('(restaurants.nb_places - IFNULL((
             SELECT COUNT(*)
             FROM dishes
@@ -54,7 +53,6 @@ class RestaurantController extends Controller
       'restaurants.name',
       'restaurants.localisation',
       'restaurants.nb_places',
-      'restaurants.type_id',
     ])
       ->where('restaurants.id', $id)
       ->first();

@@ -1,9 +1,10 @@
 <?php
 
+use App\Models\Restaurant;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\User;
+use App\Models\Type;
 
 return new class extends Migration
 {
@@ -12,13 +13,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('restaurants', function (Blueprint $table) {
+        Schema::create('restaurant_types', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('localisation');
-            $table->string('nb_places');
-            $table->mediumText('image')->nullable();
-            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(Type::class);
+            $table->foreignIdFor(Restaurant::class);
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('restaurants');
+        Schema::dropIfExists('restaurant_types');
     }
 };
