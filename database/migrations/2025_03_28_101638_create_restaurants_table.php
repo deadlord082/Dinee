@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('localisation');
             $table->string('nb_places');
+            $table->mediumText('image')->nullable();
             $table->foreignIdFor(User::class);
             $table->foreignIdFor(Type::class);
             $table->rememberToken();

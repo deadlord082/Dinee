@@ -13,6 +13,7 @@
 
     @section('content')
     <div class="px-4 py-5 sm:px-6">
+    <img class="w-50 rounded-full" src="{{ $user->image }}" alt="Rounded avatar">
         <h3 class="text-lg leading-6 font-medium text-gray-900">
             Profile Restaurant
         </h3>
@@ -44,6 +45,14 @@
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                     ex : (123) 456-7890(à changer)
+                </dd>
+            </div>
+            <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-gray-500">
+                    Image
+                </dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                <img class="w-50 rounded-full" src="{{ $restaurant->image }}" alt="Rounded avatar">
                 </dd>
             </div>
             <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

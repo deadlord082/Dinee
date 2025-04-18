@@ -23,6 +23,7 @@ class RestaurantFactory extends Factory
             'name' => fake()->company(),
             'localisation' => fake()->numberBetween(100000,9999999999),
             'nb_places' => fake()->numberBetween(1,20),
+            'image' => fake()->imageUrl(),
             'type_id' => fake()->numberBetween(1,3),
             'user_id' => fake()->numberBetween(1,10),
         ];

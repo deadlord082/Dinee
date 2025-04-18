@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string("name");
             $table->string("description");
+            $table->mediumText('image')->nullable();
             $table->foreignIdFor(Restaurant::class);
             $table->timestamps();
         });

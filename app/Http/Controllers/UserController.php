@@ -16,7 +16,7 @@ class UserController extends Controller
     public function show(): View
     {
         // dd(User::findOrFail($id));
-        $restaurant = Restaurant::select('localisation','nb_places','types.name as type_name')
+        $restaurant = Restaurant::select('localisation','nb_places','types.name as type_name','image')
         ->where('user_id','=',Auth::id())
         ->join('types','restaurants.type_id','types.id')
         ->get();
