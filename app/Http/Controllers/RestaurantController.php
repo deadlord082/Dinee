@@ -2,19 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dishe;
-use Illuminate\Http\Request;
 use App\Models\Restaurant;
-use Auth;
+use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
     public function index()
     {
         $restaurants = Restaurant::all();
+        $filters = Type::select('name','id')->get();
 
         return view('restaurants.index', [
-          'restaurants' => $restaurants,
+            'restaurants' => $restaurants,
+            'filters' => $filters
+        ]);
+    }
+
+    public function search(Request $request)
+    {
+
+        $search = $request->search ?? '';
+        $filters = $request->filters ?? '';
+
+        $restaurants = Restaurant::where('name' ,'LIKE' ,'%'.$search.'%')->get();
+        $filters = Type::select('name','id')->get();
+
+        return view('restaurants.index', [
+            'restaurants' => $restaurants,
+            'filters' => $filters
         ]);
     }
 
@@ -33,7 +48,7 @@ class RestaurantController extends Controller
             GROUP BY dishes.restaurant_id
         ), 0)) AS available_seats')
     ])
-    ->get();
+      ->get();
 
     return view('restaurants.index', [
       'restaurants' => $restaurants
@@ -49,8 +64,8 @@ class RestaurantController extends Controller
       'restaurants.nb_places',
       'restaurants.type_id',
     ])
-    ->where('restaurants.id', $id)
-    ->first();
+      ->where('restaurants.id', $id)
+      ->first();
 
     return view('restaurants.show', [
       'restaurant' => $restaurant
