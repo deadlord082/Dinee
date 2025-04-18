@@ -13,7 +13,7 @@
 
     @section('content')
     <div class="px-4 py-5 sm:px-6">
-        <img class="w-50 rounded-full" src="{{ $user->image }}" alt="Rounded avatar">
+        <img class="w-50 h-50 rounded-full" src="{{ $user->image }}" alt="Rounded avatar">
         <h3 class="text-lg leading-6 font-medium text-gray-900">
             Profile Utilisateur
         </h3>

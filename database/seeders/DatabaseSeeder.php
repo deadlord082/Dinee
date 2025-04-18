@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Dishe;
+use App\Models\RestaurantType;
 use App\Models\User;
 use App\Models\Type;
 use App\Models\Statut;
@@ -27,17 +28,16 @@ class DatabaseSeeder extends Seeder
 
         User::factory(10)->create();
 
-        Type::factory()->create([
-            'name' => 'Italian',
-        ]);
-        Type::factory()->create([
-            'name' => 'Mexicain',
-        ]);
-        Type::factory()->create([
-            'name' => 'Français',
-        ]);
+        $types = ['Italian','Mexicain','Brasserie','Creperie','Burger','Fast-food','Greques','Chinois'];
+        foreach($types as $type){
+            Type::factory()->create([
+                'name' => $type,
+            ]);
+        }
 
         Restaurant::factory(10)->create();
+
+        RestaurantType::factory(50)->create();
 
         Statut::factory()->create([
             'status' => 'En attentes',

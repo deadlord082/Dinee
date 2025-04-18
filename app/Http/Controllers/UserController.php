@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Restaurant;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\View\View;
@@ -15,20 +16,23 @@ class UserController extends Controller
      */
     public function show(): View
     {
-        // dd(User::findOrFail($id));
-        $restaurant = Restaurant::select('localisation','nb_places','types.name as type_name','image')
+        $restaurant = Restaurant::select('id','localisation','nb_places','image')
         ->where('user_id','=',Auth::id())
-        ->join('types','restaurants.type_id','types.id')
-        ->get();
-        if(count($restaurant) === 0){
+        ->first();
+        if(!$restaurant){
             return view('user.profile', [
                 'user' => Auth::user()
             ]);
         }
         else{
+            $types = Type::select('name')
+        ->join('restaurant_types','restaurant_types.type_id','types.id')
+        ->where('restaurant_id','=',$restaurant->id)
+        ->get();
             return view('restaurants.profile', [
                 'user' => Auth::user(),
-                'restaurant' => $restaurant[0]
+                'restaurant' => $restaurant,
+                'types' => $types
             ]);
         }
         

@@ -9,15 +9,14 @@ use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
-  public function index()
-  {
-    $restaurants = Restaurant::select([
-      'restaurants.id',
-      'restaurants.name',
-      'restaurants.localisation',
-      'restaurants.nb_places',
-      'restaurants.type_id',
-      \DB::raw('(restaurants.nb_places - IFNULL((
+    public function index()
+    {
+      $restaurants = Restaurant::select([
+        'restaurants.id',
+        'restaurants.name',
+        'restaurants.localisation',
+        'restaurants.nb_places',
+        \DB::raw('(restaurants.nb_places - IFNULL((
             SELECT COUNT(*)
             FROM dishes
             WHERE dishes.restaurant_id = restaurants.id
@@ -55,7 +54,6 @@ class RestaurantController extends Controller
       'restaurants.name',
       'restaurants.localisation',
       'restaurants.nb_places',
-      'restaurants.type_id',
     ])
       ->where('restaurants.id', $id)
       ->first();

@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Restaurant>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\RestaurantType>
  */
-class RestaurantFactory extends Factory
+class RestaurantTypeFactory extends Factory
 {
     protected static ?string $password;
 
@@ -20,10 +20,8 @@ class RestaurantFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->company(),
-            'localisation' => fake()->numberBetween(100000,9999999999),
-            'nb_places' => fake()->numberBetween(1,20),
-            'user_id' => fake()->numberBetween(1,10),
+            'type_id' => fake()->numberBetween(1,8),
+            'restaurant_id' => fake()->numberBetween(1,10),
         ];
     }
 }
