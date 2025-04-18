@@ -21,11 +21,10 @@ class RestaurantFactory extends Factory
     {
         return [
             'name' => fake()->company(),
-            'email' => fake()->unique()->safeEmail(),
-            'password' => static::$password ??= Hash::make('12345678'),
             'localisation' => fake()->numberBetween(100000,9999999999),
             'nb_places' => fake()->numberBetween(1,20),
             'type_id' => fake()->numberBetween(1,3),
+            'user_id' => fake()->numberBetween(1,10),
         ];
     }
 }

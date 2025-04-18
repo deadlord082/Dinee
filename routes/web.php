@@ -12,6 +12,7 @@ use App\Http\Middleware\IsAuthenticated;
 Route::middleware([IsAuthenticated::class])->group(function () {
     // Route::get('/user', [UserController::class, 'index']);
     Route::get('/user', [UserController::class, 'show'])->name('profil');
+    Route::get('/restaurant', [RestaurantController::class, 'profile'])->name('restaurant-profil');
     Route::get('/logout', [loginController::class, 'logout'])->name('logout');
 
     Route::get('/home', function () {
@@ -37,4 +38,5 @@ Route::middleware([IsAuthenticated::class])->group(function () {
 
 Route::get('/', [loginController::class, 'login']);
 Route::get('/login', [loginController::class, 'login']);
+Route::get('/register', [loginController::class, 'register'])->name('register');
 Route::post('/authenticate', [loginController::class, 'authenticate']);
