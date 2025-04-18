@@ -7,8 +7,13 @@
 
     </head>
     <body>
-        <x-navbar></x-navbar>
+    @extends('layouts.app')
+
+    @section('title', 'Profile')
+
+    @section('content')
         <p>{{ $user->name }}</p>
-        <a href="{{ route('logout') }}">se deconnecter</a>
+        <a href="{{ route('logout') }}">Se déconnecter</a>
+    @endsection
     </body>
 </html>

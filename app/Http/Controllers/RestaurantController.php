@@ -2,22 +2,58 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dishe;
 use Illuminate\Http\Request;
+use App\Models\Restaurant;
+use Auth;
 
 class RestaurantController extends Controller
 {
     public function index()
     {
-        $bookings = Booking::
-        select('status','dishes.name as dishe_name','bookings.name','date','bookings.nb_places','restaurants.name as restaurant_name')
-        ->where('user_id',Auth::id())
-        ->join('restaurants', 'bookings.restaurant_id',  'restaurants.id')
-        ->join('statuts', 'bookings.statut_id',  'statuts.id')
-        ->join('dishes', 'bookings.dishe_id',  'dishes.id')
-        ->get();
-        
-        return view('booking.index', [
-            'bookings' => $bookings
+        $restaurants = Restaurant::all();
+
+        return view('restaurants.index', [
+          'restaurants' => $restaurants,
         ]);
     }
+
+  public function indexWithAvailableSeats()
+  {
+    $restaurants = Restaurant::select([
+      'restaurants.id',
+      'restaurants.name',
+      'restaurants.localisation',
+      'restaurants.nb_places',
+      'restaurants.type_id',
+      \DB::raw('(restaurants.nb_places - IFNULL((
+            SELECT COUNT(*)
+            FROM dishes
+            WHERE dishes.restaurant_id = restaurants.id
+            GROUP BY dishes.restaurant_id
+        ), 0)) AS available_seats')
+    ])
+    ->get();
+
+    return view('restaurants.index', [
+      'restaurants' => $restaurants
+    ]);
+  }
+
+  public function show($id)
+  {
+    $restaurant = Restaurant::select([
+      'restaurants.id',
+      'restaurants.name',
+      'restaurants.localisation',
+      'restaurants.nb_places',
+      'restaurants.type_id',
+    ])
+    ->where('restaurants.id', $id)
+    ->first();
+
+    return view('restaurants.show', [
+      'restaurant' => $restaurant
+    ]);
+  }
 }
