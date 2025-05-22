@@ -1,9 +1,10 @@
 <?php
 $width = $width ?? 50;
 $height = $height ?? 50;
+$class = $class ?? '';
 ?>
 
-<svg class="" id="logo" data-name="logo" xmlns="http://www.w3.org/2000/svg" width="{{ $width }}" height="{{ $height }}" viewBox="0 0 400.3 400">
+<svg class="{{ $class }}" id="logo" data-name="logo" xmlns="http://www.w3.org/2000/svg" width="{{ $width }}" height="{{ $height }}" viewBox="0 0 400.3 400">
         <defs>
           <style>
             .cls-1 {
