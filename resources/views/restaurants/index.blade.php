@@ -21,7 +21,7 @@
             <x-inputs.slider-filter name="{{ $filter->name }}" id="{{ $filter->id }}"></x-inputs.slider-filter>
         @endforeach
     </div>
-    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> filtrer </button>
+    <button type="submit" class="text-white bg-dinee hover:bg-dinee-secondary focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2"> filtrer </button>
   </form>
     <ul role="list" class="divide-y divide-gray-100 mx-20">
       @foreach($restaurants as $restaurant)

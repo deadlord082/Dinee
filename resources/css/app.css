@@ -19,3 +19,19 @@ div.scroll-container {
     white-space: nowrap;
     padding: 10px;
   }
+
+.bg-dinee {
+    background-color: #00FF82;
+}
+
+.bg-dinee-secondary {
+    background-color: #002915;
+}
+
+.text-dinee {
+    color: #00FF82;
+}
+
+.text-dinee-secondary {
+    color: #002915;
+}

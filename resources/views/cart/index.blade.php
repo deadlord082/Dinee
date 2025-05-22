@@ -34,7 +34,7 @@
 
             <div class="flex md:w-3/5">
               <div class="w-1/3 flex items-center justify-center">
-                <span class="md:hidden font-medium mr-2">Prix:</span>
+                <span class="md:hidden text-xs font-medium mr-2">Prix:</span>
                 <span>{{ number_format($item['data']['price'], 2) }} €</span>
               </div>
 

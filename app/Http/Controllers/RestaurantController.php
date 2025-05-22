@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Dishe;
 use App\Models\Restaurant;
+use App\Models\RestaurantType;
 use App\Models\Type;
 use Illuminate\Http\Request;
 
@@ -58,6 +59,11 @@ class RestaurantController extends Controller
       ->where('restaurants.id', $id)
       ->first();
 
+    $types = Type::select('name')
+        ->join('restaurant_types','restaurant_types.type_id','types.id')
+        ->where('restaurant_id','=',$restaurant->id)
+        ->get();
+
     $dishes = Dishe::select([
       'dishes.id',
       'dishes.name',
@@ -69,7 +75,8 @@ class RestaurantController extends Controller
 
     return view('restaurants.show', [
       'restaurant' => $restaurant,
-      'dishes' => $dishes
+      'dishes' => $dishes,
+      'types' => $types
     ]);
   }
 }
