@@ -8,10 +8,10 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Middleware\IsAuthenticated;
+use App\Http\Controllers\ProfileController;
 
 Route::middleware([IsAuthenticated::class])->group(function () {
-    // Route::get('/user', [UserController::class, 'index']);
-    Route::get('/user', [UserController::class, 'show'])->name('profil');
+    Route::get('/user', [ProfileController::class, 'show'])->name('profil');
     Route::get('/restaurant', [RestaurantController::class, 'profile'])->name('restaurant-profil');
     Route::get('/logout', [loginController::class, 'logout'])->name('logout');
 

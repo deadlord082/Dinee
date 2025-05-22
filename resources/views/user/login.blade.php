@@ -9,14 +9,14 @@
     <body>
         <form method="POST" action="/authenticate">
         @csrf
-        <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+        <div class="flex min-h-full flex-col justify-center px-6 lg:px-8">
             <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-                 <x-logo class="mx-auto h-30 w-auto" />
-                <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Connectez-vous à votre compte</h2>
+                 <x-logo class=" h-100 w-100" />
             </div>
 
-            <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                <form class="space-y-6" action="#" method="POST">
+            <div class="mt-5 sm:mx-auto sm:w-full sm:max-w-sm -translate-y-15">
+              <h2 class="text-center text-2xl/9 font-bold tracking-tight text-gray-900">Connectez-vous à votre compte</h2>
+              <form class="space-y-6" action="#" method="POST">
                 <div>
                     <label for="email" class="block text-sm/6 font-medium text-gray-900">Addresse email</label>
                     <div class="mt-2">
@@ -49,6 +49,6 @@
     </div>
 </form>
 
-        
+
     </body>
 </html>
