@@ -37,6 +37,8 @@ Route::middleware([IsAuthenticated::class])->group(function () {
 });
 
 Route::get('/', [loginController::class, 'login']);
-Route::get('/login', [loginController::class, 'login']);
+Route::get('/login', [loginController::class, 'login'])->name('login');
 Route::get('/register', [loginController::class, 'register'])->name('register');
+Route::get('/register_restaurant', [loginController::class, 'register_restaurant'])->name('register_restaurant');
+Route::post('/add', [loginController::class, 'add'])->name('add');
 Route::post('/authenticate', [loginController::class, 'authenticate']);
