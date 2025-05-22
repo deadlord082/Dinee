@@ -12,3 +12,12 @@ document.addEventListener('click', function(){
 document.getElementById('dropdownNavbar').addEventListener('click', function(e){
   e.stopPropagation();
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const burger = document.getElementById('burger-button');
+  const menu = document.getElementById('navbar-dropdown');
+
+  burger.addEventListener('click', function () {
+    menu.classList.toggle('hidden');
+  });
+});
