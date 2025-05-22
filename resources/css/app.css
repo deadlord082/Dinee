@@ -20,6 +20,10 @@ div.scroll-container {
     padding: 10px;
   }
 
+main {
+  margin-bottom: 80px;
+}
+
 .bg-dinee {
     background-color: #00FF82;
 }

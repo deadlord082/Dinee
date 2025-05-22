@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home</title>
-  @vite('resources/css/app.css')
-</head>
-<body>
 <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <a href="{{ route('home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -78,5 +69,3 @@
     </div>
   </div>
 </nav>
-</body>
-</html>

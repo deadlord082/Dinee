@@ -1,3 +1,11 @@
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bookings</title>
+</head>
+<body>
 @extends('layouts.app')
 
 @section('content')
@@ -32,13 +40,13 @@
               </div>
             </div>
 
-            <div class="flex md:w-3/5">
-              <div class="w-1/3 flex items-center justify-center">
+            <div class="flex flex-col sm:flex-row justify-start md:w-3/5">
+              <div class="w-1/3 flex items-center sm:justify-center">
                 <span class="md:hidden text-xs font-medium mr-2">Prix:</span>
                 <span>{{ number_format($item['data']['price'], 2) }} €</span>
               </div>
 
-              <div class="w-1/3 flex items-center justify-center">
+              <div class="w-1/3 flex items-center sm:justify-center">
                 <form action="{{ route('cart.update', $productId) }}" method="POST" class="flex items-center">
                   @csrf
                   @method('PATCH')
@@ -54,7 +62,7 @@
                 </form>
               </div>
 
-              <div class="w-1/3 flex items-center justify-center">
+              <div class="w-1/3 flex items-center sm:justify-center">
                 <span class="md:hidden font-medium mr-2">Total:</span>
                 <span class="font-medium text-blue-600">{{ number_format($item['data']['price'] * $item['quantity'], 2) }} €</span>
               </div>
@@ -63,17 +71,17 @@
         @endforeach
 
         <div class="p-6 border-t">
-          <div class="flex justify-between items-center">
+          <div class="flex flex-col justify-center sm:flex-row sm:justify-between sm:items-center">
             <form action="{{ route('cart.clear') }}" method="POST">
               @csrf
               @method('POST')
-              <button type="submit" class="text-red-500 hover:text-red-700 flex items-center cursor-pointer">
+              <button type="submit" class="text-red-500 hover:text-red-700 flex sm:items-center cursor-pointer">
                 <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><title>delete_2_line</title><g id="delete_2_line" fill='none'><path d='M24 0v24H0V0zM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01z'/><path fill='red' d='M14.28 2a2 2 0 0 1 1.897 1.368L16.72 5H20a1 1 0 1 1 0 2l-.003.071-.867 12.143A3 3 0 0 1 16.138 22H7.862a3 3 0 0 1-2.992-2.786L4.003 7.07A1.01 1.01 0 0 1 4 7a1 1 0 0 1 0-2h3.28l.543-1.632A2 2 0 0 1 9.721 2zm3.717 5H6.003l.862 12.071a1 1 0 0 0 .997.929h8.276a1 1 0 0 0 .997-.929zM10 10a1 1 0 0 1 .993.883L11 11v5a1 1 0 0 1-1.993.117L9 16v-5a1 1 0 0 1 1-1m4 0a1 1 0 0 1 1 1v5a1 1 0 1 1-2 0v-5a1 1 0 0 1 1-1m.28-6H9.72l-.333 1h5.226z'/></g></svg>
                 Vider le panier
               </button>
             </form>
 
-            <div class="text-right">
+            <div class="sm:text-right">
               <div class="text-xl font-bold mb-2">Total: {{ number_format($total, 2) }} €</div>
               <a href="{{ route('cart.index') }}" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-medium">
                 Passer la commande
@@ -120,3 +128,5 @@
     });
   </script>
 @endsection
+</body>
+</html>
