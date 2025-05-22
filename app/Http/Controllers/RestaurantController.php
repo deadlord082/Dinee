@@ -61,7 +61,7 @@ class RestaurantController extends Controller
 
     $types = Type::select('name')
         ->join('restaurant_types','restaurant_types.type_id','types.id')
-        ->where('restaurant_id','=',$restaurant->id)
+        ->where('restaurant_id',$restaurant->id)
         ->get();
 
     $dishes = Dishe::select([
@@ -78,5 +78,10 @@ class RestaurantController extends Controller
       'dishes' => $dishes,
       'types' => $types
     ]);
+  }
+
+  public function map()
+  {
+    return view('maps.index');
   }
 }

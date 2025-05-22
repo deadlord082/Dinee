@@ -26,6 +26,7 @@ Route::middleware([IsAuthenticated::class])->group(function () {
     Route::get('/restaurants', [RestaurantController::class, 'index'])->name('restaurants');
     Route::get('/restaurants/{id}', [RestaurantController::class, 'show'])->name('restaurant');
     Route::post('/restaurants', [RestaurantController::class, 'search'])->name('search-restaurants');
+    Route::get('/map', [RestaurantController::class, 'map'])->name('restaurants-map');
 
     Route::prefix('cart')->group(function () {
       Route::get('/', [CartController::class, 'index'])->name('cart.index');
