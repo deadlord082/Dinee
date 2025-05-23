@@ -1,5 +1,5 @@
 <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+  <div class="w-screen flex flex-wrap items-center justify-between mx-auto p-4">
     <a href="{{ route('home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
       <x-logo width="80" height="80"/>
     </a>
@@ -51,19 +51,19 @@
           </div>
         </li>
         <li>
-          <a href="{{ route('bookings') }}"
+          <a href="{{ route('restaurants') }}"
+             class="block py-2 px-3 rounded-sm md:p-0 {{ request()->routeIs('restaurants') ? 'text-blue-700 dark:text-blue-500' : 'text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500' }}"
+            {{ request()->routeIs('restaurants') ? 'aria-current="page"' : '' }}>Restaurants</a>
+        </li>
+        <li>
+          <a href="{{ route('restaurants-map') }}"
              class="block py-2 px-3 rounded-sm md:p-0 {{ request()->routeIs('bookings') ? 'text-blue-700 dark:text-blue-500' : 'text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500' }}"
-            {{ request()->routeIs('bookings') ? 'aria-current="page"' : '' }}>Réservations</a>
+            {{ request()->routeIs('restaurants-map') ? 'aria-current="page"' : '' }}>Map</a>
         </li>
         <li>
           <a href="{{ route('cart.index') }}"
              class="block py-2 px-3 rounded-sm md:p-0 {{ request()->routeIs('cart.index') ? 'text-blue-700 dark:text-blue-500' : 'text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500' }}"
             {{ request()->routeIs('cart.index') ? 'aria-current="page"' : '' }}>Panier</a>
-        </li>
-        <li>
-          <a href="{{ route('restaurants') }}"
-             class="block py-2 px-3 rounded-sm md:p-0 {{ request()->routeIs('restaurants') ? 'text-blue-700 dark:text-blue-500' : 'text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500' }}"
-            {{ request()->routeIs('restaurants') ? 'aria-current="page"' : '' }}>Restaurants</a>
         </li>
       </ul>
     </div>
