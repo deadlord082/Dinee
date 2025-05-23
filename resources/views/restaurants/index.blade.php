@@ -26,8 +26,9 @@
     <ul role="list" class="divide-y divide-gray-100 mx-5">
       @foreach($restaurants as $restaurant)
         <div class="md:hidden w-full bg-white rounded-lg shadow p-4 mb-5">
+          <a href="{{ route('restaurant', ['id' => $restaurant->id]) }}">
           <!-- Image simulée -->
-          <div class="w-full h-32 bg-gray-200 rounded-lg mb-4 bg-cover bg-center" style="background-image: url('{{ $restaurant['data']['image'] ?? 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80' }}');">
+          <div class="w-full scroll-n h-32 bg-gray-200 rounded-lg mb-4 bg-cover bg-center" style="background-image: url('{{ $restaurant->image ?? 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80' }}');">
           <!-- Remplace bg-[url(...)] par une vraie image ou <img> si besoin -->
           </div>
 
@@ -43,6 +44,7 @@
             </svg>
             4,5
           </div>
+          </a>
         </div>
         <li class="hidden md:block">
           <a class="flex justify-between gap-x-6 py-5" href="{{ route('restaurant', ['id' => $restaurant->id]) }}">
