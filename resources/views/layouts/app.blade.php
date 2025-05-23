@@ -9,7 +9,7 @@
   @vite(['resources/js/app.js'])
   @vite('resources/css/app.css')
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col py-5">
 
 <!-- Header -->
 <header>

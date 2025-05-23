@@ -65,12 +65,10 @@
                     <input type="password" name="password" id="password" autocomplete="current-password" required class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
                     </div>
                 </div>
-                <br>
                 <p class="mt-10 text-center text-sm/6 text-gray-500">
                 Vous êtes un simple utilisateur ?
                 <a href="{{ route('register') }}" class="font-semibold mt-10 text-center text-sm/6 text-dinee">Inscrivez-vous</a>
                 </p>
-                <br>
                 <div>
                     <button type="submit" class="flex w-full justify-center rounded-md bg-dinee px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-dinee-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">S'inscrire</button>
                 </div>
@@ -84,6 +82,6 @@
     </div>
 </form>
 
-        
+
     </body>
 </html>

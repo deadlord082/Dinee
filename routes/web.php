@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\HomeController;
 use App\Http\Middleware\IsAuthenticated;
 use App\Http\Controllers\ProfileController;
 
@@ -16,9 +17,7 @@ Route::middleware([IsAuthenticated::class])->group(function () {
     Route::get('/restaurant', [RestaurantController::class, 'profile'])->name('restaurant-profil');
     Route::get('/logout', [loginController::class, 'logout'])->name('logout');
 
-    Route::get('/home', function () {
-        return view('home');
-    })->name( 'home');
+    Route::get('/home', [HomeController::class, 'index'])->name( 'home');
 
     Route::get('/booking', [BookingController::class, 'index'])->name('bookings');
 

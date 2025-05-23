@@ -70,14 +70,14 @@
         <!-- Contenu -->
         <div class="flex flex-col gap-5">
           <h2>{{ $dish->name }}</h2>
-          <div class="flex flex-center gap-4">
-            <p class="text-xs">Prix : {{ $dish->price }}</p>
+          <div class="flex flex-col flex-center gap-2">
+            <p class="text-xs">Prix : {{ $dish->price }}€</p>
             <p class="text-xs">Taille : {{ $dish->size }}</p>
           </div>
         </div>
         <!-- Image -->
         <div class="relative">
-          <img class="rounded-xl h-40 z-0"
+          <img class="rounded-xl h-30 w-30 object-cover z-0"
                src="{{ $dish->image ?? 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80' }}"
                alt="">
           <!-- Bouton d'ajout -->
