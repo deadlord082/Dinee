@@ -31,6 +31,8 @@ class RestaurantController extends Controller
             GROUP BY dishes.restaurant_id
         ), 0)) AS available_seats')
     ])
+    ->join('restaurant_types','restaurants.id','restaurant_types.restaurant_id')
+    ->where('restaurant_types.type_id','LIKE', '%' . $filter . '%')
     ->where('name', 'LIKE', '%' . $search . '%')
     ->get();
 
@@ -59,9 +61,9 @@ class RestaurantController extends Controller
   public function search(Request $request)
   {
     $search = $request->search ?? '';
-    $filters = $request->filters ?? '';
+    $filter = $request->id ?? '';
 
-    return Self::index($search, $filters);
+    return Self::index($search, $filter);
   }
 
   public function show($id)

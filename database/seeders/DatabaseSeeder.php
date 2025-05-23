@@ -30,12 +30,9 @@ class DatabaseSeeder extends Seeder
 
         User::factory(10)->create();
 
-        $types = ['Italian','Mexicain','Brasserie','Creperie','Burger','Fast-food','Greques','Chinois'];
-        foreach($types as $type){
-            Type::factory()->create([
-                'name' => $type,
-            ]);
-        }
+        $this->call([
+            TypeSeeder::class,
+        ]);
 
         Restaurant::factory(10)->create();
 
