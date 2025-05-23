@@ -81,12 +81,17 @@
               </button>
             </form>
 
-            <div class="sm:text-right">
-              <div class="text-xl font-bold mb-2">Total: {{ number_format($total, 2) }} €</div>
-              <a href="{{ route('cart.index') }}" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-medium">
-                Passer la commande
-              </a>
-            </div>
+            <form action="{{ route('cart.save') }}" method="POST">
+              @csrf
+              @method('POST')
+              <input type="text" name="name" id="name" value="test">
+              <div class="sm:text-right">
+                <div class="text-xl font-bold mb-2">Total: {{ number_format($total, 2) }} €</div>
+                <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition font-medium">
+                  Passer la commande
+                </but>
+              </div>
+            </form>
           </div>
         </div>
       </div>
