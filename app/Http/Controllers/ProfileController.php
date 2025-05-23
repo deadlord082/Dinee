@@ -13,7 +13,7 @@ class ProfileController extends Controller
     $user = Auth::user();
     $bookings = (new BookingController())->index();
 
-    $restaurant = Restaurant::select('id', 'localisation', 'nb_places', 'image')
+    $restaurant = Restaurant::select('id', 'name', 'localisation', 'nb_places', 'image')
       ->where('user_id', $user->id)
       ->first();
 
