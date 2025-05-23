@@ -12,11 +12,14 @@ class HomeController extends Controller
     {
       $filters = Type::select('name', 'id')->get();
 
-      $newRestaurants = Restaurant::orderBy('created_at', 'desc')->take(3)->get();
+      $restaurantController = new RestaurantController();
+      $newRestaurants = $restaurantController->getNews();
+      $favorites = $restaurantController->getFavorites();
 
       return view('home', [
         'filters' => $filters,
-        'newRestaurants' => $newRestaurants
+        'newRestaurants' => $newRestaurants,
+        'favorites' => $favorites
       ]);
     }
 }

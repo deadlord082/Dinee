@@ -40,7 +40,7 @@ class RestaurantController extends Controller
       ])
       ->where('restaurant_id',$restaurant->id)
       ->get();
-      
+
       $moyenne = 0;
       foreach($reviews as $review){
         $moyenne += $review->stars;
@@ -81,6 +81,7 @@ class RestaurantController extends Controller
       ])
     ->where('restaurant_id',$restaurant->id)
     ->get();
+
     $moyenne = 0;
     foreach($reviews as $review){
       $moyenne += $review->stars;
@@ -125,5 +126,78 @@ class RestaurantController extends Controller
   public function map()
   {
     return view('maps.index');
+  }
+
+  public function getFavorites ($search = '', $filter = '')
+  {
+    // 1. Récupération des restaurants avec nb_places et available_seats
+    $restaurants = Restaurant::select([
+      'restaurants.id',
+      'restaurants.name',
+      'restaurants.localisation',
+      'restaurants.nb_places',
+      'restaurants.image',
+      \DB::raw('(restaurants.nb_places - IFNULL((
+            SELECT COUNT(*)
+            FROM dishes
+            WHERE dishes.restaurant_id = restaurants.id
+            GROUP BY dishes.restaurant_id
+        ), 0)) AS available_seats')
+    ])
+      ->where('name', 'LIKE', '%' . $search . '%')
+      ->get();
+
+    // 2. Calcul de la note moyenne pour chaque restaurant
+    foreach ($restaurants as $restaurant) {
+      $reviews = Review::where('restaurant_id', $restaurant->id)->pluck('stars');
+
+      $restaurant->note = $reviews->count() > 0
+        ? round($reviews->avg(), 1)
+        : null; // ou 0 si tu veux forcer une valeur
+
+      // optionnel : tu peux ajouter $restaurant->review_count = $reviews->count();
+    }
+
+    return $restaurants->sortByDesc('note')->take(3)->values();
+  }
+
+  public function getNews($search = '', $filter = '')
+  {
+    $restaurants = Restaurant::select([
+      'restaurants.id',
+      'restaurants.name',
+      'restaurants.localisation',
+      'restaurants.nb_places',
+      'restaurants.image',
+      // \DB::raw('(restaurants.nb_places - IFNULL((
+      //     SELECT *
+      //     FROM dishes
+      //     WHERE dishes.restaurant_id = restaurants.id
+      // ), 0)) AS available_seats'),
+      \DB::raw('(restaurants.nb_places - IFNULL((
+            SELECT COUNT(*)
+            FROM dishes
+            WHERE dishes.restaurant_id = restaurants.id
+            GROUP BY dishes.restaurant_id
+        ), 0)) AS available_seats')
+    ])
+      ->where('name', 'LIKE', '%' . $search . '%')
+      ->get();
+
+    foreach($restaurants as $restaurant){
+      $reviews = Review::select([
+        'stars'
+      ])
+        ->where('restaurant_id',$restaurant->id)
+        ->get();
+
+      $moyenne = 0;
+      foreach($reviews as $review){
+        $moyenne += $review->stars;
+      }
+      $restaurant->note = round($moyenne / count($reviews), 1);
+    }
+
+    return $restaurants->sortByDesc('created_at')->take(3)->values();
   }
 }

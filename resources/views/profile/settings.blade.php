@@ -12,7 +12,8 @@
     @section('title', 'Profile')
 
     @section('content')
-    <div class="flex flex-col items-center justify-center px-4 py-5 sm:px-6">
+      <x-inputs.go-back-input />
+      <div class="flex flex-col items-center justify-center px-4 py-5 sm:px-6">
         <h1 class="text-xl leading-6 font-medium text-gray-900">
           Paramètres
         </h1>

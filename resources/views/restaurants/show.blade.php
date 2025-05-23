@@ -10,6 +10,7 @@
 @section('title', $restaurant->name)
 
 @section('content')
+  <x-inputs.go-back-input />
   <div class="bg-white border-b-3 border-gray-200 mb-5">
     <div
       class="mx-auto grid max-w-2xl grid-cols-1 items-center px-4 py-10 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
@@ -110,7 +111,7 @@
         @foreach ($reviews as $review)
           <div class="w-full mx-auto border-b border-gray-300 px-6 py-4 ">
             <div class="flex items-center mb-6">
-                <img src="{{ $review->image }}" alt="{{ $review->name }}" class="w-12 h-12 rounded-full mr-4">
+                <img src="{{ $review->image }}" alt="{{ $review->name }}" class="w-12 h-12 object-cover rounded-full mr-4">
                 <div>
                     <?php $date = explode(' ',$review->created_at); ?>
                     <div class="text-lg font-medium text-gray-800">{{ $review->name }}</div>
@@ -126,13 +127,13 @@
                 </div>
             </div>
             <p class="text-lg leading-relaxed mb-6">{{ $review->comment }}</p>
-            
+
         </div>
         @endforeach
       </div>
     </div>
   </div>
-  
+
 @endsection
 </body>
 </html>
