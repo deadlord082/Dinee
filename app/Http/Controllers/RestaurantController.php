@@ -81,7 +81,6 @@ class RestaurantController extends Controller
       ])
     ->where('restaurant_id',$restaurant->id)
     ->get();
-    
     $moyenne = 0;
     foreach($reviews as $review){
       $moyenne += $review->stars;
@@ -104,10 +103,22 @@ class RestaurantController extends Controller
       ->where('restaurant_id', $id)
       ->get();
 
+      $reviews = Review::select([
+          'stars',
+          'comment',
+          'reviews.created_at',
+          'users.name',
+          'users.image'
+      ])
+    ->where('restaurant_id',$restaurant->id)
+    ->join('users','users.id','reviews.user_id')
+    ->get();
+
     return view('restaurants.show', [
       'restaurant' => $restaurant,
       'dishes' => $dishes,
-      'types' => $types
+      'types' => $types,
+      'reviews' => $reviews
     ]);
   }
 
