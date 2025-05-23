@@ -18,7 +18,7 @@ class ProfileController extends Controller
       ->first();
 
     if (!$restaurant) {
-      return view('user.profile', [
+      return view('profile.user_profile', [
         'user' => $user,
         'bookings' => $bookings,
       ]);
@@ -29,11 +29,15 @@ class ProfileController extends Controller
       ->where('restaurant_id', $restaurant->id)
       ->get();
 
-    return view('restaurants.profile', [
+    return view('profile.restaurant_profile', [
       'user' => $user,
       'restaurant' => $restaurant,
       'types' => $types,
       'bookings' => $bookings,
     ]);
+  }
+
+  public function settings(){
+    return view('profile.settings');
   }
 }

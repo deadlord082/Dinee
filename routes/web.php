@@ -12,6 +12,7 @@ use App\Http\Controllers\ProfileController;
 
 Route::middleware([IsAuthenticated::class])->group(function () {
     Route::get('/user', [ProfileController::class, 'show'])->name('profil');
+    Route::get('/settings', [ProfileController::class, 'settings'])->name('settings');
     Route::get('/restaurant', [RestaurantController::class, 'profile'])->name('restaurant-profil');
     Route::get('/logout', [loginController::class, 'logout'])->name('logout');
 
