@@ -19,7 +19,6 @@ class BookingFactory extends Factory
         return [
             'restaurant_id' => fake()->numberBetween(1, 10),
             'user_id' => fake()->numberBetween(1,10),
-            'dishe_id' => fake()->numberBetween(1,10),
             'statut_id' => fake()->numberBetween(1,3),
             'name' => fake()->name(),
             'nb_places' => fake()->randomNumber(2),

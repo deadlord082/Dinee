@@ -16,7 +16,8 @@ class BookingController extends Controller
         ->where('bookings.user_id',Auth::id())
         ->join('restaurants', 'bookings.restaurant_id',  'restaurants.id')
         ->join('statuts', 'bookings.statut_id',  'statuts.id')
-        ->join('dishes', 'bookings.dishe_id',  'dishes.id')
+        ->join('booking_dishes', 'bookings.id',  'booking_dishes.booking_id')
+        ->join('dishes', 'booking_dishes.dishe_id',  'dishes.id')
         ->get();
 
         return $bookings;

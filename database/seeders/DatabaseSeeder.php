@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\BookingDishe;
 use App\Models\Dishe;
 use App\Models\RestaurantType;
 use App\Models\User;
@@ -9,6 +10,7 @@ use App\Models\Type;
 use App\Models\Statut;
 use App\Models\Booking;
 use App\Models\Restaurant;
+use App\Models\Review;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -51,5 +53,7 @@ class DatabaseSeeder extends Seeder
 
         Booking::factory(100)->create();
         Dishe::factory(100)->create();
+        Review::factory(100)->create();
+        BookingDishe::factory(1000)->create();
     }
 }

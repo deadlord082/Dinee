@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string("description");
             $table->mediumText('image')->nullable();
             $table->foreignIdFor(Restaurant::class);
+            $table->string('size');
+            $table->integer('price');
             $table->timestamps();
         });
     }
