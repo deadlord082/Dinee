@@ -1,16 +1,21 @@
+@php
+  $name = $name ?? 'filtre';
+  $id = $id ?? 1;
+@endphp
 
-<?php
-$name = $name ?? 'filtre';
-$id = $id ?? 1;
-?>
-<form href="{{ route('search-restaurants') }}">
-<input type="hidden" name="id" id="id" value="{{ $id }}">
-<input type="hidden" name="name" id="name" value="{{ $name }}">
-<button type="submit">
-  <label class="overflow-hidden inline-flex items-center w-30 p-3 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 dark:peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-    <div class="block">
-      <div class="w-full text-lg font-semibold">{{ $name }}</div>
+<form action="{{ route('search-restaurants') }}" method="GET">
+  <input type="hidden" name="id" value="{{ $id }}">
+  <input type="hidden" name="name" value="{{ $name }}">
+
+  <button type="submit" class="w-full text-left">
+    <div class="w-60 h-30 rounded text-lg font-semibold relative text-white">
+      <div class="absolute inset-0 bg-cover bg-center rounded-xl"
+           style="background-image: url('{{ $image ?? 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80' }}');">
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-l from-transparent to-black opacity-70 rounded-xl shadow"></div>
+      <div class="relative z-10 p-4 text-shadow">
+        {{ $name }}
+      </div>
     </div>
-  </label>
-</b>
+  </button>
 </form>

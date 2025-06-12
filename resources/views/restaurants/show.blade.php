@@ -17,7 +17,7 @@
       <img class="rounded-xl w-full h-48 object-cover mb-10" src="{{ $restaurant->image }}"
            alt="{{ $restaurant->name }}"/>
       <div>
-        <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ $restaurant->name }}</h1>
+        <h1 class="truncate text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ $restaurant->name }}</h1>
         <div class="flex items-center gap-2">
           <svg class="flex-none" xmlns="http://www.w3.org/2000/svg" height="18" width="18" viewBox="0 0 448 512">
             <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->

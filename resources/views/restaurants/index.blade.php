@@ -14,7 +14,7 @@
   <x-inputs.search-input placeholder="Chercher un restaurant" action="{{ route('search-restaurants') }}" />
   <form method="POST" action="{{ route('search-restaurants') }}">
     @csrf
-    <div class="scroll-container bg-gray-100 my-5 no-scrollbar">
+    <div class="scroll-container my-5 no-scrollbar flex gap-2">
         @foreach ($filters as $filter)
             <x-inputs.slider-filter name="{{ $filter->name }}" id="{{ $filter->id }}"></x-inputs.slider-filter>
         @endforeach
@@ -31,7 +31,7 @@
           </div>
 
           <!-- Titre -->
-          <h3 class="text-lg font-medium text-gray-900">{{ $restaurant->name }}</h3>
+          <h3 class="truncate text-lg font-medium text-gray-900">{{ $restaurant->name }}</h3>
 
           <!-- Note -->
           <div class="flex items-center text-sm text-gray-600">
