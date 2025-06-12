@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
@@ -27,6 +28,10 @@ Route::middleware([IsAuthenticated::class])->group(function () {
     Route::get('/restaurants/{id}', [RestaurantController::class, 'show'])->name('restaurant');
     Route::post('/restaurants', [RestaurantController::class, 'search'])->name('search-restaurants');
     Route::get('/map', [RestaurantController::class, 'map'])->name('restaurants-map');
+
+    Route::prefix('settings')->group(function () {
+      Route::get('/edit-profil', [SettingController::class, 'edit_profil'])->name('settings.edit-profil');
+    });
 
     Route::prefix('cart')->group(function () {
       Route::get('/', [CartController::class, 'index'])->name('cart.index');
