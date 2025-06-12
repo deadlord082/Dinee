@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index ()
     {
-      $filters = Type::select('name', 'id')->get();
+      $filters = Type::select('name', 'id', 'image')->get();
 
       $restaurantController = new RestaurantController();
       $newRestaurants = $restaurantController->getNews();

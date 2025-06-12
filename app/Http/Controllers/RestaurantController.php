@@ -34,6 +34,7 @@ class RestaurantController extends Controller
     ->join('restaurant_types','restaurants.id','restaurant_types.restaurant_id')
     ->where('restaurant_types.type_id','LIKE', '%' . $filter . '%')
     ->where('name', 'LIKE', '%' . $search . '%')
+    ->groupBy('restaurants.id')
     ->get();
 
     foreach($restaurants as $restaurant){
