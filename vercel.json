@@ -17,8 +17,8 @@
     "env": {
         "APP_NAME": "Dinee",
         "APP_ENV": "production",
-        "APP_DEBUG": "false",
-        "APP_URL": "https://dinee.vercel.app",
+        "APP_DEBUG": "true",
+        "APP_URL": "https://dinee-zeta.vercel.app",
         "VERCEL_DEMO_MODE": "true",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
