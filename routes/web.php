@@ -31,6 +31,7 @@ Route::middleware([IsAuthenticated::class])->group(function () {
 
     Route::prefix('settings')->group(function () {
       Route::get('/edit-profil', [SettingController::class, 'edit_profil'])->name('settings.edit-profil');
+      Route::post('/update-profil', [SettingController::class, 'update_profil'])->name('settings.update-profil');
     });
 
     Route::prefix('cart')->group(function () {

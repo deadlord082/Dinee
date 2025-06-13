@@ -16,15 +16,11 @@
       <x-inputs.search-input placeholder="Chercher un restaurant" action="{{ route('search-restaurants') }}" />
 
       <!-- Filter -->
-      <form method="POST" action="{{ route('search-restaurants') }}">
-        @csrf
         <div class="scroll-container my-5 no-scrollbar flex gap-2">
           @foreach ($filters as $filter)
             <x-inputs.slider-filter name="{{ $filter->name }}" id="{{ $filter->id }}" image="{{ $filter->image }}"></x-inputs.slider-filter>
           @endforeach
         </div>
-        <button type="submit" class="mx-5 md:mx-0 text-black bg-dinee hover:bg-dinee-secondary focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2"> Filtrer </button>
-      </form>
 
       <!-- New restaurants -->
       <div>

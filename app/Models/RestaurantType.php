@@ -9,4 +9,9 @@ class RestaurantType extends Model
 {
     /** @use HasFactory<\Database\Factories\TypeFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'type_id',
+        'restaurant_id'
+    ];
 }
