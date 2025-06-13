@@ -6,7 +6,7 @@
     ],
     "routes": [
         {
-            "src": "/ressource/(css|js)/(.*)",
+            "src": "/ressource/(css/)?([a-zA-Z0-9_\\-]+\\.(ico|txt|webp|css|js|png|jpg))$",
             "dest": "public/$1/$2"
         },
         {
