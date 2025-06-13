@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>@yield('title', 'Titre par défaut')</title>
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
   <!-- CSS global -->
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
